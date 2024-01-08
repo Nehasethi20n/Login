@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<title>Login Form</title>
+
+    <style>
+        div 
+        {
+            box-sizing: border-box;
+            width: 100%;
+            border: 100px solid black;
+        }
+        h1
+        {       text-align:center;
+                color:white;
+        }
+
+        form 
+        {
+            margin: 11 auto;
+            width: 600px;
+        }
+        input[type=text]
+        {
+        color: black;
+        }
+	body
+	{
+	background-image: url("freshprints.jpg");
+	}
+       p
+       {
+        color:white;
+       }
+    </style>
+</head>
+
+<body>
+    <h1>LOGIN FORM</h1>
+    <form name="LogForm" onsubmit="validateEmail()" method="post">
+
+        <p>E-mail: <input type="text" size="100" name="Email" /></p>
+
+        <br />
+
+        <p>Password: <input type="text" size="100" name="Password" /></p>
+
+        <br />
+
+        <p>
+            <input type="submit" value="Submit" name="Submit" />
+            <input type="reset" value="Reset" name="Reset" />
+        </p>
+
+    </form>
+<script>
+        function validateEmail() {
+            var email =document.forms.LogForm.Email.value;
+            var password =document.forms.LogForm.Password.value;
+            var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+            
+                if (email == "" || !regEmail.test(email)) 
+             {
+                window.alert("Please enter a valid e-mail address.");
+                email.focus();
+                return false;
+            }
+             
+            if (password == ""|| password.length <8) 
+             {
+                window.alert("Please enter correct password");
+                password.focus();
+                return false;
+            }
+          
+            return true;
+        }
+    </script>
+</body>
+
+</html>
